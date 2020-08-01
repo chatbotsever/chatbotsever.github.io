@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UETChatBot - Admin</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+
+    <!--Icons-->
+    <script src="/js/lumino.glyphs.js"></script>
+
+    <style>
+      a:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <span>UETChatBot</span>
+            Admin
+          </a>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+      <ul class="nav menu">
+        <li>
+          <a href="admin.html">
+            <svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg>
+            Thông tin
+          </a>
+        </li>
+        <li class="active">
+          <a>
+            <svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg>
+            Công cụ
+          </a>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <li>
+          <a href="logout.html">
+            <svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
+            Đăng xuất
+          </a>
+        </li>
+        <li role="presentation" class="divider"></li>
+      </ul>
+      <div class="attribution">
+        Template by
+        <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">Medialoot</a>
+        <br />
+        <a href="http://www.glyphs.co" style="color: #333;">Icons by Glyphs</a>
+      </div>
+    </div>
+    <!--/.sidebar-->
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+      <div class="row">
+        <ol class="breadcrumb">
+          <li>
+            <a href="#">
+              <svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg>
+            </a>
+          </li>
+        </ol>
+      </div>
+      <!--/.row-->
+
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Công cụ</h2>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <b>Phiên bản chatbot:</b>
+              <span id="version"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">Check info</div>
+            <div class="panel-body">
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                <div class="form-group">
+                  <label>Check info dựa trên ID</label>
+                  <textarea class="form-control" placeholder="" id="id"></textarea>
+                  <br />
+                  <button class="btn btn-primary" onclick="checkInfo()">Check</button>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="ptnkinfo"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">Sao lưu</div>
+            <div class="panel-body">
+              <b>Tạo bản sao lưu trạng thái ghép cặp.</b>
+              <br />
+              <br />
+              <button class="btn btn-primary" onclick="getBackupFile()" id="backup_btn">Tải bản sao lưu</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading" style="color: Red;">Xoá dữ liệu</div>
+            <div class="panel-body">
+              <b>Xóa toàn bộ dữ liệu trên server!</b>
+              <br />
+              <br />
+              <button class="btn btn-primary" onclick="resetDatabase()" id="resetDb_btn">Xoá dữ liệu</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">Khôi phục</div>
+            <div class="panel-body">
+              <b>Khôi phục trạng thái ghép cặp.</b>
+              <br />
+              <br />
+              Chọn file:
+              <br />
+              <input type="file" id="fileToLoad" onchange="restore(event)" />
+              <br />
+              <b id="restore_status"></b>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!--/.main-->
+
+    <script src="/js/jquery-3.5.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/cookie.js"></script>
+    <script src="/js/utils.js"></script>
+  </body>
+</html>
